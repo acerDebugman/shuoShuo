@@ -1,13 +1,13 @@
-<%@page import="com.sun.crypto.provider.RSACipher"%>
+<%-- <%@page import="com.sun.crypto.provider.RSACipher"%> --%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@ page import="java.io.*,java.util.*,java.sql.*,shouqisystem.user.*" %>
-<jsp:useBean id="userinfo" scope="request" class="shouqisystem.user.UserInfo"/>
+<%@ page import="java.io.*,java.util.*,java.sql.*,shouQiSystem.user.*" %>
+<jsp:useBean id="userinfo" scope="request" class="shouQiSystem.user.UserInfo"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8">   -->
-<meta http-equiv="refresh" content="3; URL=bottom.jsp; charset=utf-8">  
+<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8">  -->
+<meta http-equiv="refresh" content="3; URL=bottom.jsp; charset=utf-8">
 <title>底部页面</title>
 </head>
 <body background="images/bottom.png">
@@ -94,7 +94,7 @@
       
        <tr>
       <%            
-        String trafficAccidentSql="select * from trafficAccidentRemind order by ID desc limit 0,1";
+        String trafficAccidentSql="select * from trafficaccidentremind order by ID desc limit 0,1";
         ResultSet trafficAccidentRs=userinfo.execute(trafficAccidentSql);
         while(trafficAccidentRs.next()){
         	name=trafficAccidentRs.getString("name");

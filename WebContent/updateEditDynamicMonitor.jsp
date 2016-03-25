@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@ page import="java.io.*,java.util.*,java.sql.*,shouqisystem.user.*" %>
-<jsp:useBean id="userinfo" scope="request" class="shouqisystem.user.UserInfo"/>
+<%@ page import="java.io.*,java.util.*,java.sql.*,shouQiSystem.user.*" %>
+<jsp:useBean id="userinfo" scope="request" class="shouQiSystem.user.UserInfo"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,8 +30,6 @@
  
  userinfo.editDynamicMonitor(ID, name, carNum, speedTime, speedFourLevelTimes, outGoingTime, destination, fatigueDrivingTime, degree, times);
  userinfo.editDynamicMonitorRemind(ID, name, carNum, speedTime, speedFourLevelTimes, outGoingTime, destination, fatigueDrivingTime, degree, times);
- userinfo.editCaptainDynamicMonitorRemind(ID, name, carNum, speedTime, speedFourLevelTimes, outGoingTime, destination, fatigueDrivingTime, degree, times);
- userinfo.editManDynamicMonitorRemind(ID, name, carNum, speedTime, speedFourLevelTimes, outGoingTime, destination, fatigueDrivingTime, degree, times);
 %>
 <script language="javascript">
           alert("  修改成功！");

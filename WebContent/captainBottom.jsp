@@ -1,18 +1,18 @@
-<%@page import="com.sun.crypto.provider.RSACipher"%>
+<%-- <%@page import="com.sun.crypto.provider.RSACipher"%> --%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@ page import="java.io.*,java.util.*,java.sql.*,shouqisystem.user.*" %>
-<jsp:useBean id="userinfo" scope="request" class="shouqisystem.user.UserInfo"/>
+<%@ page import="java.io.*,java.util.*,java.sql.*,shouQiSystem.user.*" %>
+<jsp:useBean id="userinfo" scope="request" class="shouQiSystem.user.UserInfo"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8">   -->
-<meta http-equiv="refresh" content="3; URL=captainBottom.jsp; charset=utf-8">  
+<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8">  -->
+<meta http-equiv="refresh" content="3; URL=bottom.jsp; charset=utf-8">
 <title>底部页面</title>
 </head>
 <body background="images/bottom.png">
    <center>
-    <form action="" method="GET" name="form" target="captainMain">
+    <form action="" method="GET" name="form" target="main">
     <table boder="2" cellpadding="5" cellspacing="5">
   <tr>
       <%
@@ -24,7 +24,7 @@
        
         ResultSet trafficViolationSumRs,trafficAccidentSumRs,dynamicMonitorSumRs,ICcardDataSumRs,trainRecordSumRs,serviceSumRs,technologySumRs,financeSumRs,labourSumRs;
         
-        String trafficViolationSql="select * from captaintrafficviolationremind order by ID desc";
+        String trafficViolationSql="select * from trafficViolationRemind order by ID desc";
         ResultSet trafficViolationRs=userinfo.execute(trafficViolationSql);
         while(trafficViolationRs.next()){
         	name=trafficViolationRs.getString("name");
@@ -91,7 +91,7 @@
             </tr>
             	<% 
             }
-             break;
+            break;
             }
         }
         trafficViolationRs.close();
@@ -100,7 +100,7 @@
       
        <tr>
       <%            
-        String trafficAccidentSql="select * from captaintrafficAccidentRemind order by ID desc";
+        String trafficAccidentSql="select * from trafficAccidentRemind order by ID desc limit 0,1";
         ResultSet trafficAccidentRs=userinfo.execute(trafficAccidentSql);
         while(trafficAccidentRs.next()){
         	name=trafficAccidentRs.getString("name");
@@ -152,7 +152,6 @@
             financeSumRs.close();
             labourSumRs.close();
             userinfo.close_all();
-            if(captainNum.equals(userinfo.queryWorkplace(name, carNum))){
             if(trafficViolationSum+trafficAccidentSum+ICcardDataSum+trainRecordSum+serviceSum+technologySum+financeSum+labourSum>=3){
       %>
           <td><input type="checkbox" name="pkey" size="5" value="<%=userinfo.findEmployeeCardNum(name, carNum) %>"/></td>
@@ -167,15 +166,13 @@
             </tr>
             	<% 
             }
-            break;
-            }
         }
         trafficAccidentRs.close();
         userinfo.close_all();
       %>
        <tr>
       <%            
-        String dynamicMonitorSql="select * from captaindynamicMonitorRemind order by ID desc";
+        String dynamicMonitorSql="select * from dynamicMonitorRemind order by ID desc limit 0,1";
         ResultSet dynamicMonitorRs=userinfo.execute(dynamicMonitorSql);
         while(dynamicMonitorRs.next()){
         	name=dynamicMonitorRs.getString("name");
@@ -227,7 +224,6 @@
             financeSumRs.close();
             labourSumRs.close();
             userinfo.close_all();
-            if(captainNum.equals(userinfo.queryWorkplace(name, carNum))){
             if(trafficViolationSum+trafficAccidentSum+ICcardDataSum+trainRecordSum+serviceSum+technologySum+financeSum+labourSum>=3){
       %>
           <td><input type="checkbox" name="pkey" size="5" value="<%=userinfo.findEmployeeCardNum(name, carNum) %>"/></td>
@@ -242,8 +238,6 @@
             </tr>
             	<% 
             }
-            break;
-            }
         }
         dynamicMonitorRs.close();
         userinfo.close_all();
@@ -251,7 +245,7 @@
       
        <tr>
       <%            
-        String ICcardDataSql="select * from captainICcardDataRemind order by ID desc";
+        String ICcardDataSql="select * from ICcardDataRemind order by ID desc limit 0,1";
         ResultSet ICcardDataRs=userinfo.execute(ICcardDataSql);
         while(ICcardDataRs.next()){
         	name=ICcardDataRs.getString("name");
@@ -303,7 +297,6 @@
             financeSumRs.close();
             labourSumRs.close();
             userinfo.close_all();
-            if(captainNum.equals(userinfo.queryWorkplace(name, carNum))){
             if(trafficViolationSum+trafficAccidentSum+ICcardDataSum+trainRecordSum+serviceSum+technologySum+financeSum+labourSum>=3){
       %>
           <td><input type="checkbox" name="pkey" size="5" value="<%=userinfo.findEmployeeCardNum(name, carNum) %>"/></td>
@@ -318,8 +311,6 @@
             </tr>
             	<% 
             }
-            break;
-            }
         }
         ICcardDataRs.close();
         userinfo.close_all();
@@ -327,7 +318,7 @@
       
       <tr>
       <%            
-        String trainRecordSql="select * from captaintrainRecordRemind order by ID desc";
+        String trainRecordSql="select * from trainRecordRemind order by ID desc limit 0,1";
         ResultSet trainRecordRs=userinfo.execute(trainRecordSql);
         while(trainRecordRs.next()){
         	name=trainRecordRs.getString("name");
@@ -379,7 +370,6 @@
             financeSumRs.close();
             labourSumRs.close();
             userinfo.close_all();
-            if(captainNum.equals(userinfo.queryWorkplace(name, carNum))){
             if(trafficViolationSum+trafficAccidentSum+ICcardDataSum+trainRecordSum+serviceSum+technologySum+financeSum+labourSum>=3){
       %>
           <td><input type="checkbox" name="pkey" size="5" value="<%=userinfo.findEmployeeCardNum(name, carNum) %>"/></td>
@@ -394,8 +384,6 @@
             </tr>
             	<% 
             }
-            break;
-            }
         }
         trainRecordRs.close();
         userinfo.close_all();
@@ -403,7 +391,7 @@
 
       <tr>
       <%            
-        String serviceSql="select * from captainserviceRemind order by ID desc";
+        String serviceSql="select * from serviceRemind order by ID desc limit 0,1";
         ResultSet serviceRs=userinfo.execute(serviceSql);
         while(serviceRs.next()){
         	name=serviceRs.getString("name");
@@ -455,7 +443,6 @@
             financeSumRs.close();
             labourSumRs.close();
             userinfo.close_all();
-            if(captainNum.equals(userinfo.queryWorkplace(name, carNum))){
             if(trafficViolationSum+trafficAccidentSum+ICcardDataSum+trainRecordSum+serviceSum+technologySum+financeSum+labourSum>=3){
       %>
           <td><input type="checkbox" name="pkey" size="5" value="<%=userinfo.findEmployeeCardNum(name, carNum) %>"/></td>
@@ -470,8 +457,6 @@
             </tr>
             	<% 
             }
-            break;
-            }
         }
         serviceRs.close();
         userinfo.close_all();
@@ -479,7 +464,7 @@
       
        <tr>
       <%            
-        String technologySql="select * from captaintechnologyRemind order by ID desc";
+        String technologySql="select * from technologyRemind order by ID desc limit 0,1";
         ResultSet technologyRs=userinfo.execute(technologySql);
         while(technologyRs.next()){
         	name=technologyRs.getString("name");
@@ -531,7 +516,6 @@
             financeSumRs.close();
             labourSumRs.close();
             userinfo.close_all();
-            if(captainNum.equals(userinfo.queryWorkplace(name, carNum))){
             if(trafficViolationSum+trafficAccidentSum+ICcardDataSum+trainRecordSum+serviceSum+technologySum+financeSum+labourSum>=3){
       %>
           <td><input type="checkbox" name="pkey" size="5" value="<%=userinfo.findEmployeeCardNum(name, carNum) %>"/></td>
@@ -546,8 +530,6 @@
             </tr>
             	<% 
             }
-            break;
-            }
         }
         technologyRs.close();
         userinfo.close_all();
@@ -555,7 +537,7 @@
       
        <tr>
       <%            
-        String financeSql="select * from captainfinanceRemind order by ID desc";
+        String financeSql="select * from financeRemind order by ID desc limit 0,1";
         ResultSet financeRs=userinfo.execute(financeSql);
         while(financeRs.next()){
         	name=financeRs.getString("name");
@@ -607,7 +589,6 @@
             financeSumRs.close();
             labourSumRs.close();
             userinfo.close_all();
-            if(captainNum.equals(userinfo.queryWorkplace(name, carNum))){
             if(trafficViolationSum+trafficAccidentSum+ICcardDataSum+trainRecordSum+serviceSum+technologySum+financeSum+labourSum>=3){
       %>
           <td><input type="checkbox" name="pkey" size="5" value="<%=userinfo.findEmployeeCardNum(name, carNum) %>"/></td>
@@ -622,8 +603,6 @@
             </tr>
             	<% 
             }
-            break;
-            }
         }
         financeRs.close();
         userinfo.close_all();
@@ -631,7 +610,7 @@
       
       <tr>
       <%            
-        String labourSql="select * from captainlabourRemind order by ID desc";
+        String labourSql="select * from labourRemind order by ID desc limit 0,1";
         ResultSet labourRs=userinfo.execute(labourSql);
         while(labourRs.next()){
         	name=labourRs.getString("name");
@@ -683,7 +662,6 @@
             financeSumRs.close();
             labourSumRs.close();
             userinfo.close_all();
-            if(captainNum.equals(userinfo.queryWorkplace(name, carNum))){
             if(trafficViolationSum+trafficAccidentSum+ICcardDataSum+trainRecordSum+serviceSum+technologySum+financeSum+labourSum>=3){
       %>
           <td><input type="checkbox" name="pkey" size="5" value="<%=userinfo.findEmployeeCardNum(name, carNum) %>"/></td>
@@ -698,8 +676,6 @@
             </tr>
             	<% 
             }
-            break;
-            }
         }
         labourRs.close();
         userinfo.close_all();
@@ -708,7 +684,7 @@
       
       <tr align="right">
            <td colspan="2">
-             <input type="submit" name="look" value="查看" onclick="form.action='CaptainRemindServlet';form.submit();">
+             <input type="submit" name="look" value="查看" onclick="form.action='RemindServlet';form.submit();">
            </td>
       </tr>
    </center>

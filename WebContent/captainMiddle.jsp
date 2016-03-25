@@ -1,9 +1,9 @@
-<%@page import="com.sun.crypto.provider.RSACipher"%>
+<%-- <%@page import="com.sun.crypto.provider.RSACipher"%> --%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@ page import="java.io.*,java.util.*,java.sql.*,shouqisystem.user.*" %>
-<jsp:useBean id="userinfo" scope="request" class="shouqisystem.user.UserInfo"/>
-<jsp:useBean id="pages" scope="page" class="shouqisystem.user.Pages"/>
+<%@ page import="java.io.*,java.util.*,java.sql.*,shouQiSystem.user.*" %>
+<jsp:useBean id="userinfo" scope="request" class="shouQiSystem.user.UserInfo"/>
+<jsp:useBean id="pages" scope="page" class="shouQiSystem.user.Pages"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@page import="java.io.*,java.util.*,java.sql.SQLException,shouqisystem.user.*,java.sql.*,java.sql.Timestamp,java.util.Date.*" %>
-<jsp:useBean id="userinfo" class="shouqisystem.user.UserInfo" />
+<%@page import="java.io.*,java.util.*,java.sql.SQLException,shouQiSystem.user.*,java.sql.*,java.sql.Timestamp,java.util.Date.*" %>
+<jsp:useBean id="userinfo" class="shouQiSystem.user.UserInfo" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,8 +22,7 @@
       
       userinfo.addDynamicMonitor(name, carNum, speedTime, speedFourLevelTimes, outGoingTime, destination, fatigueDrivingTime, degree, times);
       userinfo.addDynamicMonitorRemind(name, carNum, speedTime, speedFourLevelTimes, outGoingTime, destination, fatigueDrivingTime, degree, times);
-      userinfo.addCaptainDynamicMonitorRemind(name, carNum, speedTime, speedFourLevelTimes, outGoingTime, destination, fatigueDrivingTime, degree, times);
-      userinfo.addManDynamicMonitorRemind(name, carNum, speedTime, speedFourLevelTimes, outGoingTime, destination, fatigueDrivingTime, degree, times);
+      
    %>
    <script language="javascript">
           alert(" 增加成功！");

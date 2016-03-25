@@ -15,17 +15,7 @@
       </tr>
       <tr>
         <td>
-           <a href="http://localhost:8080/ShouQiSystem/captainMiddle.jsp" target="captainMain">查看本队所有司机信息</a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-           <a href="http://localhost:8080/ShouQiSystem/captainPersonInfo.jsp" target="captainMain">个人信息</a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-           <a href="http://localhost:8080/ShouQiSystem/login.jsp" target="captainMain">退出系统</a>
+           <a href="http://localhost:8080/ShouQiSystem/login.jsp" target="main">退出系统</a>
         </td>
       </tr>
     </table>

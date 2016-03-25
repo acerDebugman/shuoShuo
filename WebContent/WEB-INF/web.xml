@@ -299,24 +299,4 @@
     <servlet-name>CaptainLabourServlet</servlet-name>
     <url-pattern>/CaptainLabourServlet</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>CaptainRemindServlet</display-name>
-    <servlet-name>CaptainRemindServlet</servlet-name>
-    <servlet-class>shouqisystem.user.CaptainRemindServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CaptainRemindServlet</servlet-name>
-    <url-pattern>/CaptainRemindServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ManagerRemindServlet</display-name>
-    <servlet-name>ManagerRemindServlet</servlet-name>
-    <servlet-class>shouqisystem.user.ManagerRemindServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ManagerRemindServlet</servlet-name>
-    <url-pattern>/ManagerRemindServlet</url-pattern>
-  </servlet-mapping>
 </web-app>
