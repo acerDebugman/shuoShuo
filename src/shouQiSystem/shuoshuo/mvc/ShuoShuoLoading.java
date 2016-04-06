@@ -14,6 +14,7 @@ import shouQiSystem.shuoshuo.ioc.impl.ShuoShuoIoc;
 import shouQiSystem.shuoshuo.ioc.loader.AnnotationIocLoader;
 import shouQiSystem.shuoshuo.ioc.loader.ComboLoader;
 import shouQiSystem.shuoshuo.ioc.loader.JsonLoader;
+import shouQiSystem.shuoshuo.mvc.chainConfig.ActionChainMakerImpl;
 import shouQiSystem.shuoshuo.util.MethodParamNamesScaner;
 import shouQiSystem.shuoshuo.util.StringHandler;
 
@@ -26,10 +27,17 @@ public class ShuoShuoLoading {
 	}
 	
 	public void loading(ServletConfig config){
+		//0. main module analyze
+		//default action chain
+		
 		//1. ioc object
 		Ioc ioc = new ShuoShuoIoc(new ComboLoader(new AnnotationIocLoader(), new JsonLoader()));
 		Mvcs.ioc = ioc;
 		
+
+		
+		
+//		evalUrlLoading(ioc);
 		//2. url mapping
 		Map<String, AtMap> urlMapping = new HashMap<String, AtMap>();
 		AtMap atMap = null; 
@@ -56,13 +64,13 @@ public class ShuoShuoLoading {
 			for(Method m : methods){
 				if(m.isAnnotationPresent(At.class)){
 					//5.1 analyse At annotation
-					At at = iocObj.type.getAnnotation(At.class);
+					At at = m.getAnnotation(At.class);
 					if(at != null){
 						methodLevelUrl = tidyUrlAddr(at.value());
 						if(StringHandler.isNotEmpty(methodLevelUrl)){
 							//5.1.1 form a atMap
 							atMap = new AtMap();
-							atMap.iocName = key;
+							atMap.iocName = StringHandler.lowerFirst(key);
 							atMap.type = iocObj.type;
 							atMap.method = m;
 							atMap.url = classLevelUrl + methodLevelUrl;
@@ -89,13 +97,30 @@ public class ShuoShuoLoading {
 		
 		
 		//3.action chain processors initialization
-		
+		initialActionChain();
 		
 		
 		//4. dao layer datasource loading
 		
 	}
 	
+	private void initialActionChain() {
+		//1.read all chain from configuration file
+		String path = "shouQiSystem/shuoshuo/mvc/chainConfig/mvc-chain.js";
+		ActionChainMaker chainMaker = new ActionChainMakerImpl(path);
+		List<ActionChain> actionChains = chainMaker.make();
+		
+		//2.initial action chain
+		
+		
+		//3.put them into Mvcs
+		
+	}
+
+	private void evalUrlLoading(Ioc ioc) {
+		
+	}
+
 	/**
 	 * tidy the url addr
 	 * @param levelUrl

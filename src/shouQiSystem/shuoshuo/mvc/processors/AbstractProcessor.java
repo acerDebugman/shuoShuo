@@ -7,10 +7,22 @@ public class AbstractProcessor implements Processor {
 	private Processor next;
 	
 	@Override
-	public void process() {
+	public void init() {
 		
 	}
+	
+	@Override
+	public void process() {
+		
+		
+		doNext();
+	}
 
+	public void doNext(){
+		if(next != null)
+			next.process();
+	}
+	
 	/**
 	 * get next
 	 * @return
@@ -18,5 +30,14 @@ public class AbstractProcessor implements Processor {
 	public Processor getNext(){
 		return next;
 	}
+
+	@Override
+	public void setNext(Processor p) {
+		next = p;
+	}
+
+	
+	
+	
 	
 }

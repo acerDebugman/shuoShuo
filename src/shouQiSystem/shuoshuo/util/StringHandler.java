@@ -49,10 +49,35 @@ public class StringHandler {
 		return true;
 	}
 	
+	public static boolean equals(String str1, String str2){
+		if((str1 == null || str2 == null) && str1 == str2)
+			return true;
+		
+		return str1.trim().equals(str2.trim());
+	}
+	
+	
+	/**
+	 * lower the first character
+	 * @param cs
+	 * @return
+	 */
+	public static String lowerFirst(CharSequence cs) {
+		if(cs == null)
+			return null;
+		//XXX do trim job here, need a method
+		char c = cs.charAt(0);
+		c = Character.toLowerCase(c);
+		return cs.length() == 1 ? cs.toString() : (c + cs.subSequence(1, cs.length()).toString());
+	}
+	
 	public static void main(String[] args) {
 		System.out.println("empty? : " + isEmpty("   "));
 		System.out.println("empty? :|" + "   ".trim() + "|");
 		System.out.println("empty? : " + isBlank("   "));
+		System.out.print(lowerFirst("JJJ"));
 	}
+
+	
 	
 }

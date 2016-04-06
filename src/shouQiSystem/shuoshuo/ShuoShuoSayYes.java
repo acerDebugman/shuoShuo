@@ -36,6 +36,7 @@ public class ShuoShuoSayYes extends HttpServlet {
 	{
 		System.out.println("jojo handler servie!");
 		resp.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED, "error !");
+		actionHandler.doHandler(req, resp);
     }
 
 	

@@ -36,4 +36,9 @@ public class AtMap {
 	 * http method, GET/POST/DELETE...,put the thing into actionInvoker
 	 */
 //	public String httpMethod;
+	
+	/**
+	 * action chain name
+	 */
+	public String chainName = "default";
 }

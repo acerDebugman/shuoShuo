@@ -1,5 +1,10 @@
 package shouQiSystem.shuoshuo.mvc.processors;
 
-public class MethodInvokeProcessor {
+public class MethodInvokeProcessor extends AbstractProcessor {
+
+	@Override
+	public void process() {
+		
+	}
 
 }

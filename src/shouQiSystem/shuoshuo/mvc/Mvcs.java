@@ -37,4 +37,13 @@ public class Mvcs {
 	 */
 	public static Map<String, AtMap> urlMapping;
 	
+	/**
+	 * action chain configuration
+	 */
+	public static Map<String, ActionChain> actions;
+	
+	//----------configration part ---
+	
+	public static String chainFileName = "mvc-chain.js";
+	
 }

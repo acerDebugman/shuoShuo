@@ -123,6 +123,15 @@ public class ClassUtil {
     		System.out.print("native ");
     }
     
+    public static ClassLoader getClassLoader(){
+    	return Thread.currentThread().getContextClassLoader();
+    }
+    
+    /**
+     * load class
+     * @param pkgClassPath
+     * @return
+     */
     public static Class<?> getClass(String pkgClassPath){
     	try {
 			return Thread.currentThread().getContextClassLoader().loadClass(pkgClassPath);
@@ -131,7 +140,7 @@ public class ClassUtil {
 			throw new RuntimeException("@classUtil load class error!");
 		}
     }
-    
+
     public static void main(String[] args) throws IOException {
 //    	Class<?> cls = getTypeClass(Enum.class);
 //    	System.out.println(cls.getClass().getName());
